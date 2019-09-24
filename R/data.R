@@ -64,7 +64,6 @@ IntegrateDesignAndData <- function(design, version, best, worst, seed, questions
 }
 
 #' @importFrom flipData CalibrateWeight CleanSubset CleanWeights
-#' @importFrom flipFormat TrimWhitespace
 cleanAndCheckData <- function(design, version = NULL, best, worst, alternative.names, subset = NULL, weights = NULL,
                               characteristics = NULL, seed, questions.left.out = 0)
 {
@@ -83,7 +82,7 @@ cleanAndCheckData <- function(design, version = NULL, best, worst, alternative.n
         stop("alternative.names are required.")
     if (length(alternative.names) == 1)
         alternative.names <- strsplit(alternative.names, ",")[[1]]
-    alternative.names <- TrimWhitespace(alternative.names)
+    alternative.names <- trimws(alternative.names)
     # Tidying up the best and worst choices.
     if (is.factor(best[[1]]))
     {
